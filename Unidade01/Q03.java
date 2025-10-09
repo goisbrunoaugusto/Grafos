@@ -1,92 +1,59 @@
-/* 
- * QUESTÃO 03
- * Dada uma matriz de adjacência que representa um grafo direcionado,
- * converte em uma matriz de incidência.
-*/
+import java.util.ArrayList;
+import java.util.List;
+
 public class Q03 {
     public static void main(String[] args) {
-        // int[][] matrizAdjacencia = {
-        //     {0, 0, 0, 0, 0, 0},
-        //     {0, 0, 0, 0, 0, 0},
-        //     {0, 1, 0, 0, 0, 0},
-        //     {1, 1, 1, 0, 0, 0},
-        //     {0, 0, 0, 1, 0, 1},
-        //     {0, 0, 0, 1, 0, 0}
-        // };
-        int[][] matrizAdjacencia = {
-            {0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
-            {0, 0, 0, 1, 0, 1},
-            {0, 0, 1, 0, 0, 0}
+        int[][] matrizIncidencia = {
+            {0, 1, 1, 0, 0, 0},
+            {0, 1, 0, 1, 0, 0},
+            {1, 0, 0, 1, 0, 0},
+            {0, 0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 1, 1},
+            {0, 0, 1, 0, 0, 1}
         };
 
-        System.out.println("Matriz de Adjacência (Entrada):");
-        imprimirMatriz(matrizAdjacencia);
+        String edgeList = incidenciaParaEdgeList(matrizIncidencia);
 
-        int[][] matrizIncidencia = converterParaMatrizIncidencia(matrizAdjacencia);
-
-        System.out.println("\nMatriz de Incidência (Saída):");
-        imprimirMatriz(matrizIncidencia);
+        System.out.println("### Grafo Gerado ###");
+        System.out.println(edgeList);
     }
 
     /**
-     * Converte uma matriz de adjacência de um grafo direcionado para uma matriz de incidência.
-     * @param adjacencia A matriz de adjacência (V x V).
-     * @return A matriz de incidência (V x E).
+     * Converte uma matriz de incidência de um grafo não-direcionado
+     * @param incidencia A matriz de incidência (Arestas x Vértices).
+     * @return Uma String representando o grafo.
      */
-    public static int[][] converterParaMatrizIncidencia(int[][] adjacencia) {
-        if (adjacencia == null || adjacencia.length == 0) {
-            return new int[0][0];
+    public static String incidenciaParaEdgeList(int[][] incidencia) {
+        if (incidencia == null || incidencia.length == 0) {
+            return "0";
         }
 
-        int numVertices = adjacencia.length;
-        int numArestas = 0;
+        int numArestas = incidencia.length;
+        int numVertices = incidencia[0].length;
+        
+        StringBuilder sb = new StringBuilder();
 
-        // Num total de arestas
-        for (int i = 0; i < numVertices; i++) {
+        sb.append(numVertices).append("\n");
+
+        for (int i = 0; i < numArestas; i++) {
+            List<Integer> verticesDaAresta = new ArrayList<>();
             for (int j = 0; j < numVertices; j++) {
-                if (adjacencia[i][j] == 1) {
-                    numArestas++;
+                if (incidencia[i][j] == 1) {
+                    verticesDaAresta.add(j);
                 }
             }
-        }
+            
+            if (verticesDaAresta.size() == 2) {
+                int idx1 = verticesDaAresta.get(0);
+                int idx2 = verticesDaAresta.get(1);
 
-        if (numArestas == 0) {
-            return new int[numVertices][0];
-        }
-
-        // Criar a matriz de incidência (V x E)
-        int[][] incidencia = new int[numArestas][numVertices];
-        int indiceAresta = 0;
-
-        // Preencher a matriz de incidência
-        for (int i = 0; i < numVertices; i++) {
-            for (int j = 0; j < numVertices; j++) {
-                if (adjacencia[i][j] == 1) {
-                    incidencia[indiceAresta][i] = -1; // origem
-                    incidencia[indiceAresta][j] = 1; // destino
-                    
-                    indiceAresta++;
-                }
+                char char1 = (char) ('a' + idx1);
+                char char2 = (char) ('a' + idx2);
+                
+                sb.append(char1).append(",").append(char2).append("\n");
             }
         }
 
-        return incidencia;
-    }
-
-
-    public static void imprimirMatriz(int[][] matriz) {
-        if (matriz == null || matriz.length == 0 || matriz[0].length == 0) {
-            System.out.println("[Matriz Vazia]");
-            return;
-        }
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.printf("%3d ", matriz[i][j]);
-            }
-            System.out.println();
-        }
+        return sb.toString().trim();
     }
 }
