@@ -1,9 +1,10 @@
+package MainClasses;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-class Grafo {
+public class Grafo {
     private int vertices;
 
     public List<List<Integer>> getListaAdjacencia() {
@@ -101,24 +102,5 @@ class Grafo {
 
     public int GetVertexCount(){
         return vertices;
-    }
-}
-
-public class Q01 {
-    public static void main(String[] args) {
-        try {
-            System.out.println("=== Criação de Grafo com Lista de Adjacência ===");
-
-            Grafo grafo = Grafo.lerGrafoDeArquivo("lista_adjacencia.txt", false);
-            System.out.println("Grafo carregado com sucesso!");
-
-            System.out.println("\n" + "=".repeat(50));
-            grafo.imprimirGrafo();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Erro: Arquivo não encontrado - " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Erro ao processar arquivo: " + e.getMessage());
-        }
     }
 }

@@ -1,3 +1,7 @@
+package QuestionClasses;
+
+import MainClasses.Grafo;
+
 import java.io.FileNotFoundException;
 
 public class Q14 {
@@ -5,7 +9,7 @@ public class Q14 {
         Grafo grafo;
         try {
             System.out.println("=== Busca em Profundidade, com determinação de arestas de retorno, a partir de um vértice\n" + "em específico ===");
-            grafo = Grafo.lerGrafoDeArquivo("lista_adjacencia.txt", false);
+            grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/lista_adjacencia.txt", false);
 
             System.out.println("\n" + "=".repeat(50));
 
