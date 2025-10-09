@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class GrafoMatrizAdjacencia_02 {
+public class Q02 {
 
     public static int[][] lerMatrizDeArquivo(String nomeArquivo) 
             throws FileNotFoundException, IllegalArgumentException {
