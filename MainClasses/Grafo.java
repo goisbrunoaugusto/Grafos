@@ -1,12 +1,20 @@
+package MainClasses;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-class Grafo {
+public class Grafo {
     private int vertices;
+
+    public List<List<Integer>> getListaAdjacencia() {
+        return listaAdjacencia;
+    }
+
+    public void setListaAdjacencia(List<List<Integer>> listaAdjacencia) {
+        this.listaAdjacencia = listaAdjacencia;
+    }
+
     private List<List<Integer>> listaAdjacencia;
 
     public Grafo(int vertices) {
@@ -65,23 +73,34 @@ class Grafo {
         arquivo.close();
         return grafo;
     }
-}
 
-public class Q01 {
-    public static void main(String[] args) {
-        try {
-            System.out.println("=== Criação de Grafo com Lista de Adjacência ===");
+    //todo : "Arestas de retorno"
+    public void BuscaProfundidade(int vertice){
+        Stack<Integer> pilha = new Stack<>();
+        ArrayList<Boolean> visitados = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), false));
+        ArrayList<Integer> predecessor = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), null));
 
-            Grafo grafo = Grafo.lerGrafoDeArquivo("lista_adjacencia.txt", false);
-            System.out.println("Grafo carregado com sucesso!");
+        visitados.set(vertice, true);
+        pilha.add(vertice);
+        while(!pilha.isEmpty()){
+            int u = pilha.peek();
+            boolean possuiLigacao = false;
+            for(int verticeLigado : listaAdjacencia.get(u)){
+                if(!visitados.get(verticeLigado)){
+                    possuiLigacao = true;
 
-            System.out.println("\n" + "=".repeat(50));
-            grafo.imprimirGrafo();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Erro: Arquivo não encontrado - " + e.getMessage());
-        } catch (Exception e) {
-            System.out.println("Erro ao processar arquivo: " + e.getMessage());
+                    visitados.set(verticeLigado, true);
+                    predecessor.set(verticeLigado, u);
+                    pilha.push(verticeLigado);
+                }
+            }
+            if(!possuiLigacao ){
+                pilha.pop();
+            }
         }
+    }
+
+    public int GetVertexCount(){
+        return vertices;
     }
 }

@@ -1,29 +1,12 @@
+package QuestionClasses;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Collections;
 
-public class Q16 {
-
-    public static void main(String[] args) {
-        // Matriz de adjacência 
-        int[][] matrizAdjacencia = {
-            {0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
-            {1, 1, 1, 0, 0, 0},
-            {0, 0, 0, 1, 0, 1},
-            {0, 0, 0, 1, 0, 0}
-        };
-
-        // Representação do digrafo como uma Lista de Adjacências
-        Map<Integer, List<Integer>> listaDeAdjacencias = criarListaDeAdjacencias(matrizAdjacencia);
-
-        System.out.println("### Representação do Digrafo (Lista de Adjacências) ###");
-        imprimirListaDeAdjacencias(listaDeAdjacencias);
-    }
-
+public class Q16 implements IQuestionBase {
     /**
      * Cria uma representação de Lista de Adjacências a partir de uma Matriz de Adjacências.
      * @param matriz A matriz de adjacência do digrafo.
@@ -62,5 +45,24 @@ public class Q16 {
         for (Integer vertice : vertices) {
             System.out.println(vertice + " -> " + lista.get(vertice));
         }
+    }
+
+    @Override
+    public void execute() {
+        // Matriz de adjacência
+        int[][] matrizAdjacencia = {
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0, 1},
+                {0, 0, 0, 1, 0, 0}
+        };
+
+        // Representação do digrafo como uma Lista de Adjacências
+        Map<Integer, List<Integer>> listaDeAdjacencias = criarListaDeAdjacencias(matrizAdjacencia);
+
+        System.out.println("### Representação do Digrafo (Lista de Adjacências) ###");
+        imprimirListaDeAdjacencias(listaDeAdjacencias);
     }
 }
