@@ -1,24 +1,9 @@
+package QuestionClasses;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Q03 {
-    public static void main(String[] args) {
-        // Matriz de incidência (Arestas x Vértices)
-        int[][] matrizIncidencia = {
-            {0, 1, 1, 0, 0, 0},
-            {0, 1, 0, 1, 0, 0},
-            {1, 0, 0, 1, 0, 0},
-            {0, 0, 0, 1, 1, 0},
-            {0, 0, 0, 0, 1, 1},
-            {0, 0, 1, 0, 0, 1}
-        };
-
-        String grafo = incidenciaParaGrafo(matrizIncidencia);
-
-        System.out.println("### Grafo Gerado ###");
-        System.out.println(grafo);
-    }
-
+public class Q03 implements IQuestionBase {
     /**
      * Converte uma matriz de incidência de um grafo não-direcionado
      * @param incidencia A matriz de incidência (Arestas x Vértices).
@@ -59,5 +44,23 @@ public class Q03 {
         }
 
         return sb.toString().trim();
+    }
+
+    @Override
+    public void execute() {
+        // Matriz de incidência (Arestas x Vértices)
+        int[][] matrizIncidencia = {
+                {0, 1, 1, 0, 0, 0},
+                {0, 1, 0, 1, 0, 0},
+                {1, 0, 0, 1, 0, 0},
+                {0, 0, 0, 1, 1, 0},
+                {0, 0, 0, 0, 1, 1},
+                {0, 0, 1, 0, 0, 1}
+        };
+
+        String grafo = incidenciaParaGrafo(matrizIncidencia);
+
+        System.out.println("### Grafo Gerado ###");
+        System.out.println(grafo);
     }
 }

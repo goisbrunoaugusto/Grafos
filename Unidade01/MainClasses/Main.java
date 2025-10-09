@@ -1,29 +1,38 @@
 package MainClasses;
 
-import QuestionClasses.Q01;
-import QuestionClasses.Q04;
+import QuestionClasses.*;
 
 public class Main {
     public static void main(String[] args) {
         // Questão 1
         Q01 q01 = new Q01();
-        q01.execute();
+//        q01.execute();
 
         // Questão 2
 
         // Questão 3
+        Q03 q03 = new Q03();
+//        q03.execute();
+
+        // Questão 3_2
+        Q03_2 q03_2 = new Q03_2();
+//        q03_2.execute();
 
         // Questão 4
         Q04 q04 = new Q04();
-        q04.execute();
+//        q04.execute();
 
         // Questão 5
 
         // Questão 6
 
         // Questão 7
+        Q07 q07 = new Q07();
+        q07.execute();
 
         // Questão 8
+        Q08 q08 = new Q08();
+//        q08.execute();
 
         // Questão 9
 
@@ -36,10 +45,14 @@ public class Main {
         // Questão 13
 
         // Questão 14
+        Q14 q14 = new Q14();
+//        q14.execute();
 
         // Questão 15
 
         // Questão 16
+        Q16 q16 = new Q16();
+//        q16.execute();
 
         // Questão 17
 
@@ -48,5 +61,7 @@ public class Main {
         // Questão 19
 
         // Questão 20
+        Q20 q20 = new Q20();
+//        q20.execute();
     }
 }

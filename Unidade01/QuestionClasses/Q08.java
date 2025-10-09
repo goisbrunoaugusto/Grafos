@@ -1,23 +1,6 @@
-public class Q08 {
+package QuestionClasses;
 
-    public static void main(String[] args) {
-        String grafo = 
-            "8\n" +
-            "a,b\n" +
-            "b,c\n" +
-            "b,d\n" +
-            "c,d\n" +
-            "c,e\n" +
-            "e,f\n" +
-            "f,g\n" +
-            "f,h\n" +
-            "g,h";
-
-        int totalArestas = contarArestas(grafo);
-
-        System.out.println("Total de arestas: " + totalArestas);
-    }
-
+public class Q08 implements IQuestionBase {
     /**
      * Determina o número total de arestas de um grafo definido por uma string
      * no formato Edge List.
@@ -41,5 +24,24 @@ public class Q08 {
         int numeroDeArestas = linhas.length - 1;
         
         return numeroDeArestas;
+    }
+
+    @Override
+    public void execute() {
+        String grafo =
+                "8\n" +
+                        "a,b\n" +
+                        "b,c\n" +
+                        "b,d\n" +
+                        "c,d\n" +
+                        "c,e\n" +
+                        "e,f\n" +
+                        "f,g\n" +
+                        "f,h\n" +
+                        "g,h";
+
+        int totalArestas = contarArestas(grafo);
+
+        System.out.println("Total de arestas: " + totalArestas);
     }
 }

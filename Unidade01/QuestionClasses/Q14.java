@@ -4,8 +4,9 @@ import MainClasses.Grafo;
 
 import java.io.FileNotFoundException;
 
-public class Q14 {
-    public static void main(String[] args) {
+public class Q14 implements IQuestionBase {
+    @Override
+    public void execute() {
         Grafo grafo;
         try {
             System.out.println("=== Busca em Profundidade, com determinação de arestas de retorno, a partir de um vértice\n" + "em específico ===");

@@ -1,6 +1,45 @@
+package QuestionClasses;
+
 import java.util.*;
 
-public class Q20 {
+public class Q20 implements IQuestionBase {
+
+    @Override
+    public void execute() {
+        // Digrafo representado por Lista de Adjacência
+        Map<Integer, List<Integer>> digrafo = new HashMap<>();
+        // Inicializando o vértice e seus vizinhos (EXEMPLO AULA 8)
+        digrafo.put(0, Arrays.asList(1, 2, 7));
+        digrafo.put(1, Arrays.asList(3));
+        digrafo.put(2, new ArrayList<>());
+        digrafo.put(3, Arrays.asList(2, 4));
+        digrafo.put(4, Arrays.asList(1, 5));
+        digrafo.put(5, Arrays.asList(3));
+        digrafo.put(6, Arrays.asList(5, 7));
+        digrafo.put(7, Arrays.asList(6));
+        digrafo.put(8, Arrays.asList(4, 9));
+        digrafo.put(9, new ArrayList<>());
+
+
+        ResultadoDFS resultado = executarDFS(digrafo);
+
+        // --- Impressão dos Resultados ---
+        System.out.println("### Informações dos Vértices (Profundidade de Entrada e Saída) ###");
+        List<Integer> verticesOrdenados = new ArrayList<>(resultado.vertices.keySet());
+        Collections.sort(verticesOrdenados);
+
+        for (Integer v : verticesOrdenados) {
+            VerticeInfo info = resultado.vertices.get(v);
+            System.out.printf("Vértice %d: Entrada = %d, Saída = %d\n",
+                    v, info.tempoDescoberta, info.tempoFinalizacao);
+        }
+
+        System.out.println("\n### Classificação das Arestas ###");
+        System.out.println("Arestas de Árvore: " + resultado.arestasArvore);
+        System.out.println("Arestas de Retorno: " + resultado.arestasRetorno);
+        System.out.println("Arestas de Avanço: " + resultado.arestasAvanco);
+        System.out.println("Arestas de Cruzamento: " + resultado.arestasCruzamento);
+    }
 
     enum Cor {
         BRANCO, // Não visitado
@@ -122,41 +161,5 @@ public class Q20 {
         uInfo.cor = Cor.PRETO;
         tempoSaida++;
         uInfo.tempoFinalizacao = tempoSaida;
-    }
-
-    public static void main(String[] args) {
-        // Digrafo representado por Lista de Adjacência
-        Map<Integer, List<Integer>> digrafo = new HashMap<>();
-        // Inicializando o vértice e seus vizinhos (EXEMPLO AULA 8)
-        digrafo.put(0, Arrays.asList(1, 2, 7));
-        digrafo.put(1, Arrays.asList(3));
-        digrafo.put(2, new ArrayList<>());
-        digrafo.put(3, Arrays.asList(2, 4));
-        digrafo.put(4, Arrays.asList(1, 5));
-        digrafo.put(5, Arrays.asList(3));
-        digrafo.put(6, Arrays.asList(5, 7));
-        digrafo.put(7, Arrays.asList(6));
-        digrafo.put(8, Arrays.asList(4, 9));
-        digrafo.put(9, new ArrayList<>());
-
-
-        ResultadoDFS resultado = executarDFS(digrafo);
-
-        // --- Impressão dos Resultados ---
-        System.out.println("### Informações dos Vértices (Profundidade de Entrada e Saída) ###");
-        List<Integer> verticesOrdenados = new ArrayList<>(resultado.vertices.keySet());
-        Collections.sort(verticesOrdenados);
-        
-        for (Integer v : verticesOrdenados) {
-            VerticeInfo info = resultado.vertices.get(v);
-            System.out.printf("Vértice %d: Entrada = %d, Saída = %d\n", 
-                              v, info.tempoDescoberta, info.tempoFinalizacao);
-        }
-
-        System.out.println("\n### Classificação das Arestas ###");
-        System.out.println("Arestas de Árvore: " + resultado.arestasArvore);
-        System.out.println("Arestas de Retorno: " + resultado.arestasRetorno);
-        System.out.println("Arestas de Avanço: " + resultado.arestasAvanco);
-        System.out.println("Arestas de Cruzamento: " + resultado.arestasCruzamento);
     }
 }

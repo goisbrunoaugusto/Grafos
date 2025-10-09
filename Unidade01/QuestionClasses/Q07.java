@@ -5,8 +5,9 @@ import MainClasses.Grafo;
 import java.io.FileNotFoundException;
 
 
-public class Q07 {
-    public static void main(String[] args) {
+public class Q07 implements IQuestionBase {
+    @Override
+    public void execute() {
         Grafo grafo;
         try {
             System.out.println("=== Função que determina o número total de vértices ===");
