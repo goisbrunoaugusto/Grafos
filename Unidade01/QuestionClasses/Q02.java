@@ -1,8 +1,10 @@
+package QuestionClasses;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Q02 {
+public class Q02 implements IQuestionBase{
 
     public static int[][] lerMatrizDeArquivo(String nomeArquivo) 
             throws FileNotFoundException, IllegalArgumentException {
@@ -64,12 +66,13 @@ public class Q02 {
         System.out.println("-------------------------------------------------");
     }
 
-    public static void main(String[] args) {
-        final String NOME_DO_ARQUIVO = "./matriz_adjacencia.txt"; 
+    @Override
+    public void execute() {
+        final String NOME_DO_ARQUIVO = "Dados_trabalho_01/matriz_adjacencia.txt";
 
         try {
             int[][] matrizLida = lerMatrizDeArquivo(NOME_DO_ARQUIVO);
-        
+
             exibirListaDeAdjacencia(matrizLida);
 
         } catch (FileNotFoundException e) {

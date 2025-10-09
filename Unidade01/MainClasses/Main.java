@@ -9,6 +9,8 @@ public class Main {
 //        q01.execute();
 
         // Questão 2
+        Q02 q02 = new Q02();
+//        q02.execute();
 
         // Questão 3
         Q03 q03 = new Q03();
@@ -28,7 +30,7 @@ public class Main {
 
         // Questão 7
         Q07 q07 = new Q07();
-        q07.execute();
+//        q07.execute();
 
         // Questão 8
         Q08 q08 = new Q08();
