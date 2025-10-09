@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Q03 {
     public static void main(String[] args) {
+        // Matriz de incidência (Arestas x Vértices)
         int[][] matrizIncidencia = {
             {0, 1, 1, 0, 0, 0},
             {0, 1, 0, 1, 0, 0},
@@ -12,10 +13,10 @@ public class Q03 {
             {0, 0, 1, 0, 0, 1}
         };
 
-        String edgeList = incidenciaParaEdgeList(matrizIncidencia);
+        String grafo = incidenciaParaGrafo(matrizIncidencia);
 
         System.out.println("### Grafo Gerado ###");
-        System.out.println(edgeList);
+        System.out.println(grafo);
     }
 
     /**
@@ -23,7 +24,7 @@ public class Q03 {
      * @param incidencia A matriz de incidência (Arestas x Vértices).
      * @return Uma String representando o grafo.
      */
-    public static String incidenciaParaEdgeList(int[][] incidencia) {
+    public static String incidenciaParaGrafo(int[][] incidencia) {
         if (incidencia == null || incidencia.length == 0) {
             return "0";
         }
@@ -35,6 +36,7 @@ public class Q03 {
 
         sb.append(numVertices).append("\n");
 
+        // Percorre a matriz de incidência
         for (int i = 0; i < numArestas; i++) {
             List<Integer> verticesDaAresta = new ArrayList<>();
             for (int j = 0; j < numVertices; j++) {
@@ -43,10 +45,12 @@ public class Q03 {
                 }
             }
             
+            // Encontra os dois vértices (j) conectados por essa aresta (i)
             if (verticesDaAresta.size() == 2) {
                 int idx1 = verticesDaAresta.get(0);
                 int idx2 = verticesDaAresta.get(1);
 
+                // Converte índices para caracteres (0 -> 'a', 1 -> 'b', etc.)
                 char char1 = (char) ('a' + idx1);
                 char char2 = (char) ('a' + idx2);
                 
