@@ -1,12 +1,19 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 class Grafo {
     private int vertices;
+
+    public List<List<Integer>> getListaAdjacencia() {
+        return listaAdjacencia;
+    }
+
+    public void setListaAdjacencia(List<List<Integer>> listaAdjacencia) {
+        this.listaAdjacencia = listaAdjacencia;
+    }
+
     private List<List<Integer>> listaAdjacencia;
 
     public Grafo(int vertices) {
@@ -64,6 +71,36 @@ class Grafo {
 
         arquivo.close();
         return grafo;
+    }
+
+    //todo : "Arestas de retorno"
+    public void BuscaProfundidade(int vertice){
+        Stack<Integer> pilha = new Stack<>();
+        ArrayList<Boolean> visitados = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), false));
+        ArrayList<Integer> predecessor = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), null));
+
+        visitados.set(vertice, true);
+        pilha.add(vertice);
+        while(!pilha.isEmpty()){
+            int u = pilha.peek();
+            boolean possuiLigacao = false;
+            for(int verticeLigado : listaAdjacencia.get(u)){
+                if(!visitados.get(verticeLigado)){
+                    possuiLigacao = true;
+
+                    visitados.set(verticeLigado, true);
+                    predecessor.set(verticeLigado, u);
+                    pilha.push(verticeLigado);
+                }
+            }
+            if(!possuiLigacao ){
+                pilha.pop();
+            }
+        }
+    }
+
+    public int GetVertexCount(){
+        return vertices;
     }
 }
 
