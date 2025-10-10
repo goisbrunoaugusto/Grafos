@@ -23,7 +23,7 @@ Checklist:
  - [ ] (12) Verificar se grafo é bipartido
  
 ### Marcos
- - [ ] (7) Número total de vértices
- - [ ] (17) Digrafo por matriz de incidência
+ - [x] (7) Número total de vértices
+ - [x] (17) Digrafo por matriz de incidência
  - [ ] (19) BFS no digrafo
  - [ ] (18) Determinação do grafo subjacente
