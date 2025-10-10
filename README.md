@@ -6,10 +6,10 @@ Checklist:
  - [ ] (14) Busca em Profundidade, com determinação de arestas de retorno, a partir de um vértice em específico
 
 ### Eloisa
- - [ ] (2) Criação do Grafo a partir da Matriz de Adjacências
- - [ ] (5) Função que calcula o grau de cada vértice
- - [ ] (11) Função que determina se um grafo é conexo ou não
- - [ ] (15) Determinação de articulações e blocos (biconectividade), utilizando obrigatoriamente a função lowpt
+ - [x] (2) Criação do Grafo a partir da Matriz de Adjacências
+ - [x] (5) Função que calcula o grau de cada vértice
+ - [x] (11) Função que determina se um grafo é conexo ou não
+ - [x] (15) Determinação de articulações e blocos (biconectividade), utilizando obrigatoriamente a função lowpt
 
 ### Davi
  - [x] (3) Criação do Grafo a partir da Matriz de Incidência
