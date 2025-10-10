@@ -74,6 +74,14 @@ public class Grafo {
         return grafo;
     }
 
+    public boolean saoAdjacentes(int v1, int v2) {
+        if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices) {
+            return listaAdjacencia.get(v1).contains(v2);
+        }
+
+        return false;
+    }
+
     //todo : "Arestas de retorno"
     public void BuscaProfundidade(int vertice){
         Stack<Integer> pilha = new Stack<>();

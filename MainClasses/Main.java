@@ -27,6 +27,8 @@ public class Main {
         // Questão 5
 
         // Questão 6
+        Q06 q06 = new Q06();
+//        q06.execute();
 
         // Questão 7
         Q07 q07 = new Q07();
