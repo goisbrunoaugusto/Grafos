@@ -6,12 +6,12 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Q13 implements IQuestionBase {
+public class Q19 implements IQuestionBase{
     @Override
     public void execute() {
-        System.out.println("=== Busca em Largura (BFS) ===");
+        System.out.println("=== Busca em Largura (BFS) em dígrafo ===");
         try {
-            Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/GRAFO_2.txt", false);
+            Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/DIGRAFO1.txt", true);
 
             int verticeInicialNoPrograma = 0;
             int verticeInicialNoArquivo = verticeInicialNoPrograma + 1;

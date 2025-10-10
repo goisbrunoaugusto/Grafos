@@ -102,8 +102,8 @@ public class Grafo {
             // Divide linha por vírgula (formato: origem,destino)
             String[] partes = linha.split(",+");
             if (partes.length == 2) {
-                int origem = Integer.parseInt(partes[0]);
-                int destino = Integer.parseInt(partes[1]);
+                int origem = Integer.parseInt(partes[0])-1;
+                int destino = Integer.parseInt(partes[1])-1;
 
                 // Adiciona aresta baseado no tipo de grafo
                 if (direcionado) {
