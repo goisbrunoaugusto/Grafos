@@ -47,6 +47,8 @@ public class Main {
         // Questão 11
 
         // Questão 12
+        Q12 q12 = new Q12();
+//        q12.execute();
 
         // Questão 13
 

@@ -134,4 +134,33 @@ public class Grafo {
             }
         }
     }
+
+    public boolean ehBipartido() {
+        int[] cores = new int[vertices];
+        Arrays.fill(cores, -1);
+
+        for (int i = 0; i < vertices; i++) {
+            if (cores[i] == -1) {
+                Queue<Integer> fila = new LinkedList<>();
+                fila.add(i);
+                cores[i] = 0;
+
+                while (!fila.isEmpty()) {
+                    int u = fila.poll();
+
+                    for (int vizinho : listaAdjacencia.get(u)) {
+                        if (cores[vizinho] == -1) {
+                            cores[vizinho] = 1 - cores[u];
+                            fila.add(vizinho);
+                        }
+                        else if (cores[vizinho] == cores[u]) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }
