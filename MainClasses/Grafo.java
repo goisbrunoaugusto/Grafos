@@ -118,12 +118,14 @@ public class Grafo {
         return grafo;
     }
 
-    // Verifica se dois vértices são adjacentes (conectados por aresta)
+    // Verifica se dois vértices são adjacentes.
     public boolean saoAdjacentes(int v1, int v2) {
+        // Validação para garantir que os vértices existem no grafo.
         if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices) {
+            // Acessa a lista de vizinhos do vértice v1 e verifica se v2 está contido nela.
             return listaAdjacencia.get(v1).contains(v2);
         }
-
+        // Retorna false se um dos vértices for inválido.
         return false;
     }
 
@@ -196,25 +198,26 @@ public class Grafo {
         return matrizIncidencia;
     }
 
-    // Remove vértice do grafo e ajusta índices dos demais vértices
+    // Remove um vértice do grafo, ajustando a lista de adjacências.
     public void removerVertice(int verticeParaRemover) {
+        // Validação do vértice
         if (verticeParaRemover < 0 || verticeParaRemover >= vertices) {
             System.out.println("Erro: Vértice " + verticeParaRemover + " não existe no grafo.");
             return;
         }
 
-        // Remove vértice da lista de adjacência
+        // Remove o vértice da lista principal (remove suas arestas de saída)
         listaAdjacencia.remove(verticeParaRemover);
         vertices--;
 
-        // Ajusta referências nos demais vértices
+        // Itera sobre todas as listas restantes para ajustar as arestas
         for (int i = 0; i < listaAdjacencia.size(); i++) {
             List<Integer> arestas = listaAdjacencia.get(i);
 
-            // Remove conexões com o vértice removido
+            // Remove todas as arestas que apontavam para o vértice removido
             arestas.removeIf(v -> v == verticeParaRemover);
 
-            // Ajusta índices dos vértices maiores que o removido
+            // Ajusta os índices dos vértices maiores que o removido
             for (int j = 0; j < arestas.size(); j++) {
                 int vizinho = arestas.get(j);
                 if (vizinho > verticeParaRemover) {
@@ -224,14 +227,18 @@ public class Grafo {
         }
     }
 
-    // Verifica se o grafo é bipartido (pode ser colorido com 2 cores)
-    // Usa BFS para colorir vértices alternadamente
+    // Verifica se o grafo é bipartido usando o algoritmo de coloração com duas
+    // cores
     public boolean ehBipartido() {
+        // Array para armazenar as cores dos vértices.
+        // -1: sem cor, 0: cor A, 1: cor B
         int[] cores = new int[vertices];
         Arrays.fill(cores, -1);
 
-        // Processa cada componente conexa
+        // Percorre todos os vértices para garantir que grafos desconexos sejam
+        // tratados.
         for (int i = 0; i < vertices; i++) {
+            // Se o vértice ainda não foi colorido, inicia uma nova busca a partir dele.
             if (cores[i] == -1) {
                 Queue<Integer> fila = new LinkedList<>();
                 fila.add(i);
@@ -242,8 +249,9 @@ public class Grafo {
                     int u = fila.poll();
 
                     for (int vizinho : listaAdjacencia.get(u)) {
+                        // Se o vizinho ainda não foi colorido
                         if (cores[vizinho] == -1) {
-                            // Vértice não colorido: usa cor oposta
+                            // colore com a cor oposta de u
                             cores[vizinho] = 1 - cores[u];
                             fila.add(vizinho);
                         } else if (cores[vizinho] == cores[u]) {
@@ -258,14 +266,13 @@ public class Grafo {
         return true;
     }
 
-    // Busca em Largura (BFS) - implementação com fila
-    // Retorna ordem de visita dos vértices
+    // Realiza uma BFS a partir de um vértice inicial
     public List<Integer> buscaEmLargura(int verticeInicial) {
         List<Integer> ordemVisita = new ArrayList<>();
         boolean[] visitados = new boolean[vertices];
         Queue<Integer> fila = new LinkedList<>();
 
-        // Valida vértice inicial
+        // Validação do vértice inicial
         if (verticeInicial < 0 || verticeInicial >= vertices) {
             System.out.println("Erro: Vértice inicial " + verticeInicial + " é inválido.");
             return ordemVisita;
@@ -280,7 +287,7 @@ public class Grafo {
             int u = fila.poll();
             ordemVisita.add(u);
 
-            // Adiciona vizinhos não visitados à fila
+            // Itera sobre os vizinhos do vértice atual 'u'
             for (int vizinho : listaAdjacencia.get(u)) {
                 if (!visitados[vizinho]) {
                     visitados[vizinho] = true;

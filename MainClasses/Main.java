@@ -5,14 +5,17 @@ import QuestionClasses.Q02;
 import QuestionClasses.Q03;
 import QuestionClasses.Q03_2;
 import QuestionClasses.Q04;
+import QuestionClasses.Q05;
 import QuestionClasses.Q06;
 import QuestionClasses.Q07;
 import QuestionClasses.Q08;
 import QuestionClasses.Q09;
 import QuestionClasses.Q10;
+import QuestionClasses.Q11;
 import QuestionClasses.Q12;
 import QuestionClasses.Q13;
 import QuestionClasses.Q14;
+import QuestionClasses.Q15;
 import QuestionClasses.Q16;
 import QuestionClasses.Q17;
 import QuestionClasses.Q20;
@@ -40,7 +43,8 @@ public class Main {
                 // q04.execute();
 
                 // Questão 5
-
+                Q05 q05 = new Q05();
+                // q05.execute();
                 // Questão 6
                 Q06 q06 = new Q06();
                 // q06.execute();
@@ -62,7 +66,8 @@ public class Main {
                 // q10.execute();
 
                 // Questão 11
-
+                Q11 q11 = new Q11();
+                q11.execute();
                 // Questão 12
                 Q12 q12 = new Q12();
                 // q12.execute();
@@ -76,7 +81,8 @@ public class Main {
                 q14.execute();
 
                 // Questão 15
-
+                Q15 q15 = new Q15();
+                // q15.execute();
                 // Questão 16
                 Q16 q16 = new Q16();
                 // q16.execute();

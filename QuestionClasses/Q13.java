@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Q13 implements IQuestionBase {
     @Override
     public void execute() {
-        System.out.println("=== Questão 13: Busca em Largura (BFS) ===");
+        System.out.println("=== Busca em Largura (BFS) ===");
         try {
             Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/GRAFO_2.txt", false);
 

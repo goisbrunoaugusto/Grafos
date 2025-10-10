@@ -126,22 +126,28 @@ public class ConversorGrafo {
         }
     }
 
+    // Remove um vértice de um grafo representado por uma matriz de adjacências
     public void removerVerticeMatriz(int verticeParaRemover) {
+        // Validação do vértice
         if (verticeParaRemover < 0 || verticeParaRemover >= vertices) {
             System.out.println("Erro: Vértice " + verticeParaRemover + " não existe na matriz.");
             return;
         }
 
+        // Cria uma nova matriz com dimensões reduzidas
         int novoNumVertices = vertices - 1;
         int[][] novaMatriz = new int[novoNumVertices][novoNumVertices];
 
         int novoI = 0;
 
+        // Itera sobre a matriz original para copiar os valores
         for (int i = 0; i < vertices; i++) {
+            // Pula a linha do vértice a ser removido
             if (i == verticeParaRemover) {
                 continue;
             }
 
+            // Copia o valor para a nova matriz
             int novoJ = 0;
             for (int j = 0; j < vertices; j++) {
                 if (j == verticeParaRemover) {
@@ -154,6 +160,7 @@ public class ConversorGrafo {
             novoI++;
         }
 
+        // Atualiza a matriz e o número de vértices na classe
         this.matrizAdjacencia = novaMatriz;
         this.vertices = novoNumVertices;
     }
