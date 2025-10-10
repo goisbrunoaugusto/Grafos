@@ -1,7 +1,8 @@
 package QuestionClasses;
 
-public class Q08 {
-    public static void main(String[] args) {
+public class Q08 implements IQuestionBase {
+    @Override
+    public void execute() {
         // Matriz de adjacência para um grafo NÃO-DIRECIONADO com 5 vértices.
         // Este grafo tem 6 arestas: (0,1), (0,4), (1,2), (1,3), (2,3), (3,4)
         int[][] matrizAdjacencia = {
