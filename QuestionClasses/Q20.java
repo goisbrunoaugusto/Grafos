@@ -1,5 +1,7 @@
 package QuestionClasses;
 
+import MainClasses.Aresta;
+
 import java.util.*;
 
 public class Q20 implements IQuestionBase {
@@ -64,21 +66,6 @@ public class Q20 implements IQuestionBase {
         public String toString() {
             return String.format("Cor: %s, Predecessor: %s, d: %d, f: %d",
                                  cor, predecessor, tempoDescoberta, tempoFinalizacao);
-        }
-    }
-
-    static class Aresta {
-        int origem;
-        int destino;
-
-        public Aresta(int origem, int destino) {
-            this.origem = origem;
-            this.destino = destino;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("(%d, %d)", origem, destino);
         }
     }
 

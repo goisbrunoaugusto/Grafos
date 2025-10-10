@@ -6,6 +6,27 @@ import java.util.*;
 
 public class Grafo {
     private int vertices;
+    private List<List<Integer>> listaAdjacencia;
+    private List<Aresta> listaArestas;
+    private int[][] matrizIncidencia;
+
+    public Grafo(int vertices) {
+        this.vertices = vertices;
+        this.listaAdjacencia = new ArrayList<>();
+        this.listaArestas = new ArrayList<>();
+
+        for (int i = 0; i < vertices; i++) {
+            listaAdjacencia.add(new ArrayList<>());
+        }
+    }
+
+    public int getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(int vertices) {
+        this.vertices = vertices;
+    }
 
     public List<List<Integer>> getListaAdjacencia() {
         return listaAdjacencia;
@@ -15,18 +36,21 @@ public class Grafo {
         this.listaAdjacencia = listaAdjacencia;
     }
 
-    private List<List<Integer>> listaAdjacencia;
 
-    public Grafo(int vertices) {
-        this.vertices = vertices;
-        this.listaAdjacencia = new ArrayList<>();
+    public List<Aresta> getListaArestas() {
+        return listaArestas;
+    }
 
-        for (int i = 0; i < vertices; i++) {
-            listaAdjacencia.add(new ArrayList<>());
-        }
+    public int[][] getMatrizIncidencia() {
+        return matrizIncidencia;
+    }
+
+    public void setMatrizIncidencia(int[][] matrizIncidencia) {
+        this.matrizIncidencia = matrizIncidencia;
     }
 
     public void adicionarAresta(int origem, int destino) {
+        listaArestas.add(new Aresta(origem, destino));
         listaAdjacencia.get(origem).add(destino);
     }
 
@@ -57,10 +81,10 @@ public class Grafo {
             if (linha.isEmpty())
                 continue;
 
-            String[] partes = linha.split("\\s+");
+            String[] partes = linha.split(",+");
             if (partes.length == 2) {
-                int origem = Integer.parseInt(partes[0]);
-                int destino = Integer.parseInt(partes[1]);
+                int origem = Integer.parseInt(partes[0])-1;
+                int destino = Integer.parseInt(partes[1])-1;
 
                 if (direcionado) {
                     grafo.adicionarAresta(origem, destino);
@@ -108,8 +132,15 @@ public class Grafo {
         }
     }
 
-    public int GetVertexCount(){
-        return vertices;
+    public int[][] GerarMatrizIncidencia() {
+        matrizIncidencia = new int[vertices][listaArestas.size()];
+        for (int i = 0; i < listaArestas.size(); i++){
+            Aresta aresta = listaArestas.get(i);
+            matrizIncidencia[aresta.origem][i] = -1;
+            matrizIncidencia[aresta.destino][i] = 1;
+        }
+
+        return matrizIncidencia;
     }
 
     public void removerVertice(int verticeParaRemover) {

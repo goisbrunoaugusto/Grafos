@@ -37,10 +37,10 @@ public class ConversorGrafo {
             if (linha.isEmpty())
                 continue;
 
-            String[] partes = linha.split("\\s+");
+            String[] partes = linha.split(",+");
             if (partes.length == 2) {
-                int origem = Integer.parseInt(partes[0]);
-                int destino = Integer.parseInt(partes[1]);
+                int origem = Integer.parseInt(partes[0])-1;
+                int destino = Integer.parseInt(partes[1])-1;
 
                 if (direcionado) {
                     listaAdjacencia.get(origem).add(destino);
@@ -70,7 +70,7 @@ public class ConversorGrafo {
         arquivo.close();
     }
 
-    public void listaParaMatriz() {
+    public int[][] listaParaMatriz() {
         this.matrizAdjacencia = new int[vertices][vertices];
 
         for (int i = 0; i < vertices; i++) {
@@ -78,6 +78,8 @@ public class ConversorGrafo {
                 matrizAdjacencia[i][vizinho] = 1;
             }
         }
+
+        return this.matrizAdjacencia;
     }
 
     public void matrizParaLista() {
@@ -99,7 +101,7 @@ public class ConversorGrafo {
     public void imprimirListaAdjacencia() {
         System.out.println("Lista de Adjacência:");
         for (int i = 0; i < vertices; i++) {
-            System.out.print("Vértice " + i + ": ");
+            System.out.print("Vértice " + (i+1) + ": ");
             for (Integer vizinho : listaAdjacencia.get(i)) {
                 System.out.print(vizinho + " ");
             }
@@ -111,12 +113,12 @@ public class ConversorGrafo {
         System.out.println("Matriz de Adjacência:");
         System.out.print("   ");
         for (int i = 0; i < vertices; i++) {
-            System.out.printf("%3d", i);
+            System.out.printf("%3d", i+1);
         }
         System.out.println();
 
         for (int i = 0; i < vertices; i++) {
-            System.out.printf("%2d:", i);
+            System.out.printf("%2d:", i+1);
             for (int j = 0; j < vertices; j++) {
                 System.out.printf("%3d", matrizAdjacencia[i][j]);
             }

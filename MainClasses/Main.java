@@ -63,6 +63,8 @@ public class Main {
 //        q16.execute();
 
         // Questão 17
+        Q17 q17 = new Q17();
+        q17.execute();
 
         // Questão 18
 
