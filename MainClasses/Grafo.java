@@ -194,4 +194,32 @@ public class Grafo {
 
         return true;
     }
+
+    public List<Integer> buscaEmLargura(int verticeInicial) {
+        List<Integer> ordemVisita = new ArrayList<>();
+        boolean[] visitados = new boolean[vertices];
+        Queue<Integer> fila = new LinkedList<>();
+
+        if (verticeInicial < 0 || verticeInicial >= vertices) {
+            System.out.println("Erro: Vértice inicial " + verticeInicial + " é inválido.");
+            return ordemVisita;
+        }
+
+        visitados[verticeInicial] = true;
+        fila.add(verticeInicial);
+
+        while (!fila.isEmpty()) {
+            int u = fila.poll();
+            ordemVisita.add(u);
+
+            for (int vizinho : listaAdjacencia.get(u)) {
+                if (!visitados[vizinho]) {
+                    visitados[vizinho] = true;
+                    fila.add(vizinho);
+                }
+            }
+        }
+
+        return ordemVisita;
+    }
 }
