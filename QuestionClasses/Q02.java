@@ -37,7 +37,7 @@ public class Q02 implements IQuestionBase{
         return matriz;
     }
 
-    public static void exibirListaDeAdjacencia(int[][] matrizAdjacencia) {
+    public static void exibirMatrizDeAdjacencia(int[][] matrizAdjacencia) {
         int numVertices = matrizAdjacencia.length;
 
         if (numVertices == 0) {
@@ -73,7 +73,7 @@ public class Q02 implements IQuestionBase{
         try {
             int[][] matrizLida = lerMatrizDeArquivo(NOME_DO_ARQUIVO);
 
-            exibirListaDeAdjacencia(matrizLida);
+            exibirMatrizDeAdjacencia(matrizLida);
 
         } catch (FileNotFoundException e) {
             System.err.println("\nERRO: o arquivo '" + NOME_DO_ARQUIVO + "' não foi encontrado");
