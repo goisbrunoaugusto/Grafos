@@ -98,6 +98,14 @@ public class Grafo {
         return grafo;
     }
 
+    public boolean saoAdjacentes(int v1, int v2) {
+        if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices) {
+            return listaAdjacencia.get(v1).contains(v2);
+        }
+
+        return false;
+    }
+
     //todo : "Arestas de retorno"
     public void BuscaProfundidade(int vertice){
         Stack<Integer> pilha = new Stack<>();
@@ -133,5 +141,57 @@ public class Grafo {
         }
 
         return matrizIncidencia;
+    }
+
+    public void removerVertice(int verticeParaRemover) {
+        if (verticeParaRemover < 0 || verticeParaRemover >= vertices) {
+            System.out.println("Erro: Vértice " + verticeParaRemover + " não existe no grafo.");
+            return;
+        }
+
+        listaAdjacencia.remove(verticeParaRemover);
+        vertices--;
+
+        for (int i = 0; i < listaAdjacencia.size(); i++) {
+            List<Integer> arestas = listaAdjacencia.get(i);
+
+            arestas.removeIf(v -> v == verticeParaRemover);
+
+            for (int j = 0; j < arestas.size(); j++) {
+                int vizinho = arestas.get(j);
+                if (vizinho > verticeParaRemover) {
+                    arestas.set(j, vizinho - 1);
+                }
+            }
+        }
+    }
+
+    public boolean ehBipartido() {
+        int[] cores = new int[vertices];
+        Arrays.fill(cores, -1);
+
+        for (int i = 0; i < vertices; i++) {
+            if (cores[i] == -1) {
+                Queue<Integer> fila = new LinkedList<>();
+                fila.add(i);
+                cores[i] = 0;
+
+                while (!fila.isEmpty()) {
+                    int u = fila.poll();
+
+                    for (int vizinho : listaAdjacencia.get(u)) {
+                        if (cores[vizinho] == -1) {
+                            cores[vizinho] = 1 - cores[u];
+                            fila.add(vizinho);
+                        }
+                        else if (cores[vizinho] == cores[u]) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 }

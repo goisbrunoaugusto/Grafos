@@ -27,6 +27,8 @@ public class Main {
         // Questão 5
 
         // Questão 6
+        Q06 q06 = new Q06();
+//        q06.execute();
 
         // Questão 7
         Q07 q07 = new Q07();
@@ -39,10 +41,14 @@ public class Main {
         // Questão 9
 
         // Questão 10
+        Q10 q10 = new Q10();
+//        q10.execute();
 
         // Questão 11
 
         // Questão 12
+        Q12 q12 = new Q12();
+//        q12.execute();
 
         // Questão 13
 
