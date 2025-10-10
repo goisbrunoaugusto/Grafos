@@ -15,6 +15,7 @@ public class Q10 implements IQuestionBase {
             grafo.imprimirGrafo();
             System.out.println("-".repeat(50));
 
+            // Teste
             int verticeParaRemover = 3;
             System.out.println("Removendo o vértice " + verticeParaRemover + "...");
             grafo.removerVertice(verticeParaRemover);
@@ -37,6 +38,7 @@ public class Q10 implements IQuestionBase {
             conversor.imprimirMatrizAdjacencia();
             System.out.println("-".repeat(50));
 
+            // Teste
             int verticeParaRemover = 3;
             System.out.println("Removendo o vértice " + verticeParaRemover + "...");
             conversor.removerVerticeMatriz(verticeParaRemover);

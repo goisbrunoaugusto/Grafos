@@ -10,6 +10,8 @@ public class Q06 implements IQuestionBase {
         System.out.println("=== Verificação se dois vértices são adjacentes ===");
         try {
             Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/lista_adjacencia.txt", false);
+
+            // Testes
             verificarEImprimir(grafo, 0, 1);
             verificarEImprimir(grafo, 0, 2);
             verificarEImprimir(grafo, 0, 3);
