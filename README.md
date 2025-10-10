@@ -12,10 +12,10 @@ Checklist:
  - [ ] (15) Determinação de articulações e blocos (biconectividade), utilizando obrigatoriamente a função lowpt
 
 ### Davi
- - [ ] (3) Criação do Grafo a partir da Matriz de Incidência
- - [ ] (8) Função que determina o número total de arestas
- - [ ] (16) Representação do Digrafo a partir da Matriz de Adjacências
- - [ ] (20) No dígrado, Busca em profundidade, com determinação de profundidade de entrada e de saída de cada vértice, e arestas de árvore, retorno, avanço e cruzamento
+ - [x] (3) Criação do Grafo a partir da Matriz de Incidência
+ - [x] (8) Função que determina o número total de arestas
+ - [x] (16) Representação do Digrafo a partir da Matriz de Adjacências
+ - [x] (20) No dígrado, Busca em profundidade, com determinação de profundidade de entrada e de saída de cada vértice, e arestas de árvore, retorno, avanço e cruzamento
 
 ### João
  - [x] (6) Função que determina se dois vértices são adjacentes
