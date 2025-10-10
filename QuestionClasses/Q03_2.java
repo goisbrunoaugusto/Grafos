@@ -1,35 +1,11 @@
-/* 
+package QuestionClasses;
+
+/*
  * QUESTÃO 03
  * Dada uma matriz de adjacência que representa um grafo direcionado,
  * converte em uma matriz de incidência.
 */
-public class Q03_2 {
-    public static void main(String[] args) {
-        // int[][] matrizAdjacencia = {
-        //     {0, 0, 0, 0, 0, 0},
-        //     {0, 0, 0, 0, 0, 0},
-        //     {0, 1, 0, 0, 0, 0},
-        //     {1, 1, 1, 0, 0, 0},
-        //     {0, 0, 0, 1, 0, 1},
-        //     {0, 0, 0, 1, 0, 0}
-        // };
-        int[][] matrizAdjacencia = {
-            {0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0},
-            {0, 0, 0, 1, 0, 1},
-            {0, 0, 1, 0, 0, 0}
-        };
-
-        System.out.println("Matriz de Adjacência (Entrada):");
-        imprimirMatriz(matrizAdjacencia);
-
-        int[][] matrizIncidencia = converterParaMatrizIncidencia(matrizAdjacencia);
-
-        System.out.println("\nMatriz de Incidência (Saída):");
-        imprimirMatriz(matrizIncidencia);
-    }
+public class Q03_2 implements IQuestionBase {
 
     /**
      * Converte uma matriz de adjacência de um grafo direcionado para uma matriz de incidência.
@@ -88,5 +64,33 @@ public class Q03_2 {
             }
             System.out.println();
         }
+    }
+
+    @Override
+    public void execute() {
+        // int[][] matrizAdjacencia = {
+        //     {0, 0, 0, 0, 0, 0},
+        //     {0, 0, 0, 0, 0, 0},
+        //     {0, 1, 0, 0, 0, 0},
+        //     {1, 1, 1, 0, 0, 0},
+        //     {0, 0, 0, 1, 0, 1},
+        //     {0, 0, 0, 1, 0, 0}
+        // };
+        int[][] matrizAdjacencia = {
+                {0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 1},
+                {0, 0, 1, 0, 0, 0}
+        };
+
+        System.out.println("Matriz de Adjacência (Entrada):");
+        imprimirMatriz(matrizAdjacencia);
+
+        int[][] matrizIncidencia = converterParaMatrizIncidencia(matrizAdjacencia);
+
+        System.out.println("\nMatriz de Incidência (Saída):");
+        imprimirMatriz(matrizIncidencia);
     }
 }

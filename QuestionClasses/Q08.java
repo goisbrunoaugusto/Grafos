@@ -1,3 +1,5 @@
+package QuestionClasses;
+
 public class Q08 {
     public static void main(String[] args) {
         // Matriz de adjacência para um grafo NÃO-DIRECIONADO com 5 vértices.
