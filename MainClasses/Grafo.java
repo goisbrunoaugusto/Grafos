@@ -91,7 +91,7 @@ public class Grafo {
 
         // Lê número de vértices da primeira linha
         int vertices = Integer.parseInt(arquivo.nextLine().trim());
-        Grafo grafo = new Grafo(vertices + 1);
+        Grafo grafo = new Grafo(vertices);
 
         // Lê cada linha de aresta
         while (arquivo.hasNextLine()) {
