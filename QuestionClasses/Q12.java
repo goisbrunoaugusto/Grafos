@@ -9,6 +9,7 @@ public class Q12 implements IQuestionBase {
     public void execute() {
         System.out.println("=== Verificação de Grafo Bipartido ===");
 
+        // Teste grafo não bipartido
         System.out.println("\n--- Testando o grafo de 'lista_adjacencia.txt' ---");
         try {
             Grafo grafoNaoBipartido = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/lista_adjacencia.txt", false);
@@ -25,6 +26,7 @@ public class Q12 implements IQuestionBase {
 
         System.out.println("\n" + "-".repeat(50));
 
+        // Teste grafo bipartido
         System.out.println("\n--- Testando um grafo bipartido de exemplo ---");
         Grafo grafoBipartido = new Grafo(4);
         grafoBipartido.adicionarArestaNaoDirecionada(0, 1);
