@@ -18,10 +18,10 @@ Checklist:
  - [ ] (20) No dígrado, Busca em profundidade, com determinação de profundidade de entrada e de saída de cada vértice, e arestas de árvore, retorno, avanço e cruzamento
 
 ### João
- - [ ] (6) Função que determina se dois vértices são adjacentes
- - [ ] (10) Exclusão de um vértice existente usando Lista de Adjacências e Matriz de Adjacências
- - [ ] (12) Determinar se um grafo é bipartido (OPC = 1,0 ponto)
- - [ ] (13) Busca em Largura, a partir de um vértice específico
+ - [x] (6) Função que determina se dois vértices são adjacentes
+ - [x] (10) Exclusão de um vértice existente usando Lista de Adjacências e Matriz de Adjacências
+ - [x] (12) Determinar se um grafo é bipartido (OPC = 1,0 ponto)
+ - [x] (13) Busca em Largura, a partir de um vértice específico
  
 ### Marcos
  - [x] (7) Função que determina o número total de vértices
