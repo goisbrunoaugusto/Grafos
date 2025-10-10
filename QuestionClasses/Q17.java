@@ -12,7 +12,6 @@ public class Q17 implements IQuestionBase{
     @Override
     public void execute() {
         Grafo grafo;
-        ConversorGrafo conversor;
         try {
             System.out.println("=== Função que imprime a matriz de incidência ===");
             grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/DIGRAFO1.txt", true);

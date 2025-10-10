@@ -11,7 +11,7 @@ public class Q13 implements IQuestionBase {
     public void execute() {
         System.out.println("=== Busca em Largura (BFS) ===");
         try {
-            Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/GRAFO_2.txt", false);
+            Grafo grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/DIGRAFO1.txt", true);
 
             int verticeInicialNoPrograma = 0;
             int verticeInicialNoArquivo = verticeInicialNoPrograma + 1;

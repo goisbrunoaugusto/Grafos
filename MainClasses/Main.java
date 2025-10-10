@@ -93,7 +93,8 @@ public class Main {
 
                 // Questão 18
 
-                // Questão 19
+                Q19 q19 = new Q19();
+                // q19.execute();
 
                 // Questão 20
                 Q20 q20 = new Q20();
