@@ -123,4 +123,36 @@ public class ConversorGrafo {
             System.out.println();
         }
     }
+
+    public void removerVerticeMatriz(int verticeParaRemover) {
+        if (verticeParaRemover < 0 || verticeParaRemover >= vertices) {
+            System.out.println("Erro: Vértice " + verticeParaRemover + " não existe na matriz.");
+            return;
+        }
+
+        int novoNumVertices = vertices - 1;
+        int[][] novaMatriz = new int[novoNumVertices][novoNumVertices];
+
+        int novoI = 0;
+
+        for (int i = 0; i < vertices; i++) {
+            if (i == verticeParaRemover) {
+                continue;
+            }
+
+            int novoJ = 0;
+            for (int j = 0; j < vertices; j++) {
+                if (j == verticeParaRemover) {
+                    continue;
+                }
+
+                novaMatriz[novoI][novoJ] = matrizAdjacencia[i][j];
+                novoJ++;
+            }
+            novoI++;
+        }
+
+        this.matrizAdjacencia = novaMatriz;
+        this.vertices = novoNumVertices;
+    }
 }

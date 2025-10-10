@@ -111,4 +111,27 @@ public class Grafo {
     public int GetVertexCount(){
         return vertices;
     }
+
+    public void removerVertice(int verticeParaRemover) {
+        if (verticeParaRemover < 0 || verticeParaRemover >= vertices) {
+            System.out.println("Erro: Vértice " + verticeParaRemover + " não existe no grafo.");
+            return;
+        }
+
+        listaAdjacencia.remove(verticeParaRemover);
+        vertices--;
+
+        for (int i = 0; i < listaAdjacencia.size(); i++) {
+            List<Integer> arestas = listaAdjacencia.get(i);
+
+            arestas.removeIf(v -> v == verticeParaRemover);
+
+            for (int j = 0; j < arestas.size(); j++) {
+                int vizinho = arestas.get(j);
+                if (vizinho > verticeParaRemover) {
+                    arestas.set(j, vizinho - 1);
+                }
+            }
+        }
+    }
 }
