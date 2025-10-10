@@ -25,7 +25,8 @@ public class Main {
 //        q04.execute();
 
         // Questão 5
-
+        Q05 q05 = new Q05();
+        // q05.execute();
         // Questão 6
         Q06 q06 = new Q06();
 //        q06.execute();
@@ -45,7 +46,8 @@ public class Main {
 //        q10.execute();
 
         // Questão 11
-
+        Q11 q11 = new Q11();
+        q11.execute();
         // Questão 12
         Q12 q12 = new Q12();
 //        q12.execute();
@@ -59,7 +61,8 @@ public class Main {
 //        q14.execute();
 
         // Questão 15
-
+        Q15 q15 = new Q15();
+        // q15.execute();
         // Questão 16
         Q16 q16 = new Q16();
 //        q16.execute();
