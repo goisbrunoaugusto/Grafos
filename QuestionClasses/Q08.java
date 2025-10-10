@@ -1,5 +1,10 @@
 package QuestionClasses;
 
+import MainClasses.Aresta;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Q08 implements IQuestionBase {
     @Override
     public void execute() {
