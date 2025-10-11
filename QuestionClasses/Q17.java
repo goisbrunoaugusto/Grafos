@@ -13,8 +13,11 @@ public class Q17 implements IQuestionBase{
     public void execute() {
         Grafo grafo;
         try {
+            System.out.println("=== Função que gera digrafo apartir de uma matriz de incidência ===");
+            grafo = Grafo.LerDiGrafoDeMatrizDeIncidencia("Dados_trabalho_01/matriz_incidencia_direcionado");
+            grafo.imprimirGrafo();
+
             System.out.println("=== Função que imprime a matriz de incidência ===");
-            grafo = Grafo.lerGrafoDeArquivo("Dados_trabalho_01/DIGRAFO1.txt", true);
 
             System.out.println("Total de arestas: " + grafo.getListaArestas().size());
             int[][] matrizIncidencia = grafo.GerarMatrizIncidencia();

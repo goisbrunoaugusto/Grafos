@@ -57,7 +57,7 @@ public class Main {
 
                 // Questão 13
                 Q13 q13 = new Q13();
-                 q13.execute();
+//                 q13.execute();
 
                 // Questão 14
                 Q14 q14 = new Q14();
@@ -72,12 +72,12 @@ public class Main {
 
                 // Questão 17
                 Q17 q17 = new Q17();
-                // q17.execute();
+                 q17.execute();
 
                 // Questão 18
 
                 Q19 q19 = new Q19();
-                 q19.execute();
+//                 q19.execute();
 
                 // Questão 20
                 Q20 q20 = new Q20();

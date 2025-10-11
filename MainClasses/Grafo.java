@@ -47,6 +47,10 @@ public class Grafo {
         this.listaAdjacencia = listaAdjacencia;
     }
 
+    public void setListaArestas(List<Aresta> listaArestas) {
+        this.listaArestas = listaArestas;
+    }
+
     public List<Aresta> getListaArestas() {
         return listaArestas;
     }
@@ -74,10 +78,10 @@ public class Grafo {
     // Exibe o grafo em formato de lista de adjacência
     public void imprimirGrafo() {
         System.out.println("Grafo:");
-        for (int i = 1; i < vertices; i++) {
-            System.out.print("Vértice " + i + ": ");
+        for (int i = 0; i < vertices; i++) {
+            System.out.print("Vértice " + (i+1) + ": ");
             for (Integer vizinho : listaAdjacencia.get(i)) {
-                System.out.print(vizinho + " ");
+                System.out.print(vizinho+1 + " ");
             }
             System.out.println();
         }
@@ -115,6 +119,48 @@ public class Grafo {
         }
 
         arquivo.close();
+        return grafo;
+    }
+
+    public static Grafo LerDiGrafoDeMatrizDeIncidencia(String caminhoArquivo) throws FileNotFoundException{
+        Scanner arquivo = new Scanner(new File(caminhoArquivo));
+
+        // Lê número de vértices da primeira linha
+        int vertices = Integer.parseInt(arquivo.nextLine().trim());
+        List<List<Integer>> adjacenciaList = new ArrayList<>();
+        for(int i = 0; i < vertices; i++){
+            adjacenciaList.add(new ArrayList<>());
+        }
+
+        Grafo grafo = new Grafo(vertices);
+
+        List<Aresta> arestaList = new ArrayList<>();
+
+        int vertice = 0;
+        while (arquivo.hasNextLine()) {
+            String linha = arquivo.nextLine().trim();
+            String[] incidencias = linha.split(" +");
+
+            for(int i = 0; i < incidencias.length; i++){
+                if(vertice == 0){
+                    arestaList.add(new Aresta(-1,-1));
+                }
+                if (Integer.parseInt(incidencias[i]) == 1){
+                    arestaList.get(i).destino = vertice;
+                }else if (Integer.parseInt(incidencias[i]) == -1){
+                    arestaList.get(i).origem = vertice;
+                }
+
+                if(arestaList.get(i).origem != -1 && arestaList.get(i).destino != -1 && !adjacenciaList.get(arestaList.get(i).origem).contains(arestaList.get(i).destino)){
+                    adjacenciaList.get(arestaList.get(i).origem).add(arestaList.get(i).destino);
+                }
+            }
+
+            vertice++;
+        }
+
+        grafo.setListaAdjacencia(adjacenciaList);
+        grafo.setListaArestas(arestaList);
         return grafo;
     }
 

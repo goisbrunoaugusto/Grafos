@@ -27,4 +27,4 @@ Checklist:
  - [x] (7) Função que determina o número total de vértices
  - [x] (17) Representação do Digrafo a partir da Matriz de Incidência
  - [ ] (18) Determinação do Grafo subjacente (OPC= 0,5 ponto)
- - [ ] (19) Busca em largura no digrafo
+ - [x] (19) Busca em largura no digrafo
