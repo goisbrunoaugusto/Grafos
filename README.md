@@ -1,4 +1,10 @@
-Checklist:
+## Para rodar
+Para rodar o programa pelo vscode deve-se descomentar a linha de código da questão desejada no arquivo Main dentro da pasta MainClasses. O código pode ser executado utilizando o comando ( javac MainClasses/Main.java && java MainClasses.Main ). 
+
+O código deve rodar diretamente utilizando o InteliJ.
+
+
+## Checklist:
 ### Bruno
  - [x] (1) Criação do Grafo a partir da Lista de Adjacências
  - [x] (4) Conversão de matriz de adjacência para lista de Adjacências e vice-versa
