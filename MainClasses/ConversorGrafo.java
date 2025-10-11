@@ -39,8 +39,8 @@ public class ConversorGrafo {
 
             String[] partes = linha.split(",+");
             if (partes.length == 2) {
-                int origem = Integer.parseInt(partes[0])-1;
-                int destino = Integer.parseInt(partes[1])-1;
+                int origem = Integer.parseInt(partes[0]) - 1;
+                int destino = Integer.parseInt(partes[1]) - 1;
 
                 if (direcionado) {
                     listaAdjacencia.get(origem).add(destino);
@@ -101,9 +101,9 @@ public class ConversorGrafo {
     public void imprimirListaAdjacencia() {
         System.out.println("Lista de Adjacência:");
         for (int i = 0; i < vertices; i++) {
-            System.out.print("Vértice " + (i+1) + ": ");
+            System.out.print("Vértice " + (i + 1) + ": ");
             for (Integer vizinho : listaAdjacencia.get(i)) {
-                System.out.print(vizinho + " ");
+                System.out.print((vizinho + 1) + " ");
             }
             System.out.println();
         }
@@ -113,12 +113,12 @@ public class ConversorGrafo {
         System.out.println("Matriz de Adjacência:");
         System.out.print("   ");
         for (int i = 0; i < vertices; i++) {
-            System.out.printf("%3d", i+1);
+            System.out.printf("%3d", i + 1);
         }
         System.out.println();
 
         for (int i = 0; i < vertices; i++) {
-            System.out.printf("%2d:", i+1);
+            System.out.printf("%2d:", i + 1);
             for (int j = 0; j < vertices; j++) {
                 System.out.printf("%3d", matrizAdjacencia[i][j]);
             }

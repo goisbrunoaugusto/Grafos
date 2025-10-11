@@ -90,7 +90,8 @@ public class Q09 implements IQuestionBase {
     private void mostrarGrafoLista(String caminhoArquivo, boolean direcionado) throws FileNotFoundException {
         Grafo grafo = Grafo.lerGrafoDeArquivo(caminhoArquivo, direcionado);
         System.out.println("\nGrafo carregado (Lista de Adjacência):");
-        grafo.imprimirGrafo();
+        // grafo.imprimirGrafo();
+        imprimirGrafoQ09(grafo);
     }
 
     // Carrega e exibe grafo em formato de matriz de adjacência
@@ -127,21 +128,24 @@ public class Q09 implements IQuestionBase {
 
         // Adiciona as conexões do novo vértice
         for (int conexao : conexoes) {
-            if (conexao < grafo.getVertices()) {
+            // Converte para índice 0-based
+            int conexaoIndex = conexao - 1;
+            if (conexaoIndex >= 0 && conexaoIndex < grafo.getVertices()) {
                 if (direcionado) {
                     // Grafo direcionado: apenas uma direção
-                    grafo.getListaAdjacencia().get(novoVertice).add(conexao);
+                    grafo.getListaAdjacencia().get(novoVertice - 1).add(conexaoIndex);
                 } else {
                     // Grafo não direcionado: conexão bidirecional
-                    grafo.getListaAdjacencia().get(novoVertice).add(conexao);
-                    grafo.getListaAdjacencia().get(conexao).add(novoVertice);
+                    grafo.getListaAdjacencia().get(novoVertice - 1).add(conexaoIndex);
+                    grafo.getListaAdjacencia().get(conexaoIndex).add(novoVertice - 1);
                 }
             }
         }
 
         System.out.println("\nVértice " + novoVertice + " adicionado com sucesso!");
         System.out.println("Grafo atualizado:");
-        grafo.imprimirGrafo();
+        // grafo.imprimirGrafo();
+        imprimirGrafoQ09(grafo);
     }
 
     // Adiciona vértice a um grafo representado por matriz de adjacência
@@ -203,6 +207,18 @@ public class Q09 implements IQuestionBase {
         // Adiciona listas vazias para os novos vértices
         for (int i = tamanhoAtual; i < novoTamanho; i++) {
             grafo.getListaAdjacencia().add(new ArrayList<>());
+        }
+    }
+
+    // Imprime o grafo com formatação corrigida (1-based)
+    private void imprimirGrafoQ09(Grafo grafo) {
+        System.out.println("Grafo:");
+        for (int i = 0; i < grafo.getVertices(); i++) {
+            System.out.print("Vértice " + (i + 1) + ": ");
+            for (Integer vizinho : grafo.getListaAdjacencia().get(i)) {
+                System.out.print((vizinho + 1) + " ");
+            }
+            System.out.println();
         }
     }
 

@@ -1,9 +1,9 @@
 Checklist:
 ### Bruno
- - [ ] (1) Criação do Grafo a partir da Lista de Adjacências
- - [ ] (4) Conversão de matriz de adjacência para lista de Adjacências e vice-versa
- - [ ] (9) Inclusão de um novo vértice usando Lista de Adjacências e Matriz de Adjacências
- - [ ] (14) Busca em Profundidade, com determinação de arestas de retorno, a partir de um vértice em específico
+ - [x] (1) Criação do Grafo a partir da Lista de Adjacências
+ - [x] (4) Conversão de matriz de adjacência para lista de Adjacências e vice-versa
+ - [x] (9) Inclusão de um novo vértice usando Lista de Adjacências e Matriz de Adjacências
+ - [x] (14) Busca em Profundidade, com determinação de arestas de retorno, a partir de um vértice em específico
 
 ### Eloisa
  - [x] (2) Criação do Grafo a partir da Matriz de Adjacências

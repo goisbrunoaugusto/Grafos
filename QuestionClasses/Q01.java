@@ -27,7 +27,7 @@ public class Q01 implements IQuestionBase {
 
             // Exibe o grafo: mostra cada vértice e suas conexões
             // Formato: "Vértice X: conexão1 conexão2 ..."
-            grafo.imprimirGrafo();
+            imprimirGrafoQ09(grafo);
 
         } catch (FileNotFoundException e) {
             // Erro quando o arquivo não existe ou não pode ser acessado
@@ -35,6 +35,18 @@ public class Q01 implements IQuestionBase {
         } catch (Exception e) {
             // Outros erros (formatação, memória, etc.)
             System.out.println("Erro ao processar arquivo: " + e.getMessage());
+        }
+    }
+
+    // Imprime o grafo com formatação corrigida (1-based)
+    private void imprimirGrafoQ09(Grafo grafo) {
+        System.out.println("Grafo:");
+        for (int i = 0; i < grafo.getVertices(); i++) {
+            System.out.print("Vértice " + (i + 1) + ": ");
+            for (Integer vizinho : grafo.getListaAdjacencia().get(i)) {
+                System.out.print((vizinho + 1) + " ");
+            }
+            System.out.println();
         }
     }
 }
