@@ -33,9 +33,9 @@ public class Q06 implements IQuestionBase {
     private void verificarEImprimir(Grafo grafo, int v1, int v2) {
         boolean adjacentes = grafo.saoAdjacentes(v1, v2);
         if (adjacentes) {
-            System.out.printf("Os vértices %d e %d são adjacentes.\n", v1, v2);
+            System.out.printf("Os vértices %d e %d são adjacentes.\n", v1+1, v2+1);
         } else {
-            System.out.printf("Os vértices %d e %d não são adjacentes.\n", v1, v2);
+            System.out.printf("Os vértices %d e %d não são adjacentes.\n", v1+1, v2+1);
         }
     }
 }

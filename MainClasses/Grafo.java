@@ -178,6 +178,7 @@ public class Grafo {
     // Busca em Profundidade (DFS) - implementação iterativa com pilha
     // Retorna ordem de visita e detecta arestas de retorno (ciclos)
     public List<Integer> BuscaProfundidade(int vertice) {
+        int _verticeNaLista = vertice-1;
         Stack<Integer> pilha = new Stack<>();
         ArrayList<Boolean> visitados = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), false));
         ArrayList<Integer> predecessor = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), -1));
@@ -186,10 +187,10 @@ public class Grafo {
         ArrayList<Boolean> naPilha = new ArrayList<>(Collections.nCopies(listaAdjacencia.size(), false));
 
         // Marca vértice inicial como visitado e adiciona à pilha
-        visitados.set(vertice, true);
-        pilha.push(vertice);
-        naPilha.set(vertice, true);
-        ordemVisita.add(vertice);
+        visitados.set(_verticeNaLista, true);
+        pilha.push(_verticeNaLista);
+        naPilha.set(_verticeNaLista, true);
+        ordemVisita.add(_verticeNaLista);
 
         // Executa DFS usando pilha
         while (!pilha.isEmpty()) {
@@ -210,7 +211,7 @@ public class Grafo {
                 } else if (visitados.get(verticeLigado) && naPilha.get(verticeLigado)
                         && predecessor.get(u) != verticeLigado) {
                     // Detecta aresta de retorno (ciclo)
-                    arestasRetorno.add("(" + u + "," + verticeLigado + ")");
+                    if(!arestasRetorno.contains("(" + (u+1) + "," + (verticeLigado+1) + ")")) arestasRetorno.add("(" + (u+1) + "," + (verticeLigado+1) + ")");
                 }
             }
 

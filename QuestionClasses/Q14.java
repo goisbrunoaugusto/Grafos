@@ -34,7 +34,7 @@ public class Q14 implements IQuestionBase {
             // Exibe a ordem de visita dos vértices
             System.out.println("\nOrdem dos vértices visitados:");
             for (int i = 0; i < ordemVisita.size(); i++) {
-                System.out.print(ordemVisita.get(i));
+                System.out.print(ordemVisita.get(i)+1);
                 if (i < ordemVisita.size() - 1) {
                     System.out.print(" → ");
                 }

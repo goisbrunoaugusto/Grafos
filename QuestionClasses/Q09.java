@@ -123,7 +123,7 @@ public class Q09 implements IQuestionBase {
 
         // Expande o grafo se o novo vértice for maior que os existentes
         if (novoVertice >= grafo.getVertices()) {
-            expandirGrafo(grafo, novoVertice + 1);
+            expandirGrafo(grafo, novoVertice);
         }
 
         // Adiciona as conexões do novo vértice

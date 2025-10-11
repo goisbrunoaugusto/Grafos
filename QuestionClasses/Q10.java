@@ -18,7 +18,7 @@ public class Q10 implements IQuestionBase {
             // Teste
             int verticeParaRemover = 3;
             System.out.println("Removendo o vértice " + verticeParaRemover + "...");
-            grafo.removerVertice(verticeParaRemover);
+            grafo.removerVertice(verticeParaRemover-1);
 
             System.out.println("\nGrafo após a remoção:");
             grafo.imprimirGrafo();

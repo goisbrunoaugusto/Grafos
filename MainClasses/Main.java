@@ -6,46 +6,47 @@ public class Main {
         public static void main(String[] args) {
                 // Questão 1
                 Q01 q01 = new Q01();
-                // q01.execute();
+//                q01.execute();
 
                 // Questão 2
                 Q02 q02 = new Q02();
-                // q02.execute();
+//                q02.execute();
 
                 // Questão 3
                 Q03 q03 = new Q03();
-                // q03.execute();
+//                q03.execute();
 
                 // Questão 3_2
                 Q03_2 q03_2 = new Q03_2();
-                // q03_2.execute();
+//                q03_2.execute();
 
                 // Questão 4
                 Q04 q04 = new Q04();
-                // q04.execute();
+//                q04.execute();
 
                 // Questão 5
                 Q05 q05 = new Q05();
-                // q05.execute();
+//                q05.execute();
+
                 // Questão 6
                 Q06 q06 = new Q06();
-                // q06.execute();
+//                q06.execute();
 
                 // Questão 7
                 Q07 q07 = new Q07();
-                // q07.execute();
+//                q07.execute();
 
                 // Questão 8
                 Q08 q08 = new Q08();
-                // q08.execute();
+//                q08.execute();
 
                 // Questão 9
                 Q09 q09 = new Q09();
-                // q09.execute();
+//                q09.execute();
 
                 // Questão 10
                 Q10 q10 = new Q10();
-                // q10.execute();
+//                q10.execute();
 
                 // Questão 11
                 Q11 q11 = new Q11();
@@ -53,11 +54,11 @@ public class Main {
 
                 // Questão 12
                 Q12 q12 = new Q12();
-                // q12.execute();
+//                q12.execute();
 
                 // Questão 13
                 Q13 q13 = new Q13();
-//                 q13.execute();
+//                q13.execute();
 
                 // Questão 14
                 Q14 q14 = new Q14();
@@ -65,22 +66,24 @@ public class Main {
 
                 // Questão 15
                 Q15 q15 = new Q15();
-                // q15.execute();
+//                q15.execute();
+
                 // Questão 16
                 Q16 q16 = new Q16();
-                // q16.execute();
+//                q16.execute();
 
                 // Questão 17
                 Q17 q17 = new Q17();
-                 q17.execute();
+//                q17.execute();
 
                 // Questão 18
 
+
                 Q19 q19 = new Q19();
-//                 q19.execute();
+//                q19.execute();
 
                 // Questão 20
                 Q20 q20 = new Q20();
-                // q20.execute();
+//                q20.execute();
         }
 }
